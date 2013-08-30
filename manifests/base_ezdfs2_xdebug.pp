@@ -16,6 +16,7 @@ include svn
 include ftp
 include ezsi
 include ssh
+include fixpermissions
 
 class ssh {
     file { "/home/vagrant/.ssh/authorized_keys":
