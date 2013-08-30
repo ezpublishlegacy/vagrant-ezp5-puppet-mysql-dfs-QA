@@ -12,6 +12,13 @@ include motd
 include addhosts
 include addtostartup
 include nfs_1
+include git
+
+class git {
+    package { "git":
+      ensure => installed,
+    }
+}
 
 class nfs_1 {
     $neededpackages = ["nfs-utils", "nfs-utils-lib", "rpcbind"]
