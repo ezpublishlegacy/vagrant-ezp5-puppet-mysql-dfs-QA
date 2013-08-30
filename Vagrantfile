@@ -64,9 +64,6 @@ Vagrant.configure("2") do |config|
     web1_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = "base_ezdfs1_xdebug.pp"
-      # If you want to use the version that doesn't include xdebug and the dev environment in virtualhosts file
-      # comment the upper line, and un-comment the lower one.
-      # puppet.manifest_file  = "base_ezdfs1.pp"
     end
   end
 
@@ -94,9 +91,6 @@ Vagrant.configure("2") do |config|
     web2_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = "base_ezdfs2_xdebug.pp"
-      # If you want to use the version that doesn't include xdebug and the dev environment in virtualhosts file
-      # comment the upper line, and un-comment the lower one.
-      # puppet.manifest_file  = "base_ezdfs2.pp"
     end
   end
 
