@@ -46,6 +46,8 @@ Vagrant.configure("2") do |config|
     # accessing "localhost:8080" will access port 80 on the guest machine.
     web1_config.vm.network :forwarded_port, guest: 80, host: 8080
     web1_config.vm.network :forwarded_port, guest: 22, host: 8022
+    web1_config.vm.network :forwarded_port, guest: 5901, host: 5901
+    web1_config.vm.network :forwarded_port, guest: 8983, host: 8983    
     web1_config.vm.box = "ezdfs1.ezp5"
     web1_config.vm.hostname = "ezdfs1.ezp5.vagrant"
     
