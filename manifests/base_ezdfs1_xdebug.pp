@@ -7,7 +7,6 @@ include ezfind
 include virtualhosts
 include firewall
 include composer
-include prepareezpublish
 include motd
 include addhosts
 include addtostartup
