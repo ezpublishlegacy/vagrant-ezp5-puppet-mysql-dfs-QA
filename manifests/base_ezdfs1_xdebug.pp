@@ -13,6 +13,27 @@ include addhosts
 include addtostartup
 include nfs_1
 include git
+include svn
+
+class svn {
+    package { "subversion":
+      ensure => installed,
+    } ~>
+    file { "/home/vagrant/.subversion":
+      ensure => "directory",
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => '750',  
+    } 
+    file { "/home/vagrant/.subversion/config":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/svn/config.erb'),
+      owner   => 'vagrant',
+      group   => 'vagrant',
+      mode    => '750',
+    }
+}
+
 
 class git {
     package { "git":
