@@ -19,6 +19,8 @@
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 # XDEBUG REMOTE PORT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 9000 -j ACCEPT
+# VNCSERVER
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 5901 -j ACCEPT
 # MYSQL
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
 # NFS
