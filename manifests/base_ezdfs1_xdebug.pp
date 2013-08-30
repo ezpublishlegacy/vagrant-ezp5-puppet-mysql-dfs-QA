@@ -16,6 +16,34 @@ include git
 include svn
 include ftp
 include ezsi
+include vncserver
+
+class vncserver {
+    $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm", "matchbox-window-manager", "firefox" ]
+    package { $neededpackages:
+      ensure => present,
+    } ~>
+    file { "/home/vagrant/.Xauthority":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/vncserver/Xauthority.erb'),
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => '750',  
+    } ~>
+    file { "/home/vagrant/.vnc":
+      ensure => "directory",
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => '750',  
+    } ~>
+    file { "/home/vagrant/.vnc/xstartup":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/vncserver/xstartup.erb'),
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => '777',  
+    }
+}
 
 class ezsi {
     user { "esitest":
