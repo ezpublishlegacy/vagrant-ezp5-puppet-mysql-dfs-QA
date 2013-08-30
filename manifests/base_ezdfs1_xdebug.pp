@@ -17,6 +17,31 @@ include svn
 include ftp
 include ezsi
 include vncserver
+include seleniumserver
+
+class seleniumserver {
+    exec { "create selenium folder":
+      command => "/bin/mkdir /opt/selenium",
+      path    => "/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin",
+      returns => [ 0, 1, '', ' ']
+    } ~>
+    exec    { "wget":
+      cwd     => "/opt/selenium",
+      command => "/usr/bin/wget http://selenium.googlecode.com/files/selenium-server-standalone-2.5.0.jar",
+      path    => "/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin",
+      returns => [ 0, 1, '', ' ']
+    } ~>
+    file { "/usr/local/bin/start_seleniumrc.sh":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/selenium/start_seleniumrc.sh.erb'),
+      mode   => '777',  
+    } ~>
+    exec    { "chmod":
+      command => "/bin/chmod +x /user/local/bin/start_seleniumrc.sh",
+      path    => "/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin",
+      returns => [ 0, 1, '', ' ']
+    } 
+}
 
 class vncserver {
     $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm", "matchbox-window-manager", "firefox" ]
