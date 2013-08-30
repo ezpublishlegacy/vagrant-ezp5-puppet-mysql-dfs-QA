@@ -25,6 +25,9 @@ Prototype development machine for eZDFS for eZ Publish 5.x, provisioned with Pup
 - Wait (the first time will take a few minutes, as the base boxes are downloaded, and required packages are installed for the first time), get some coffee, on in this case lunch ;).
 - Done! `$ ssh vagrant@10.0.5.x` to SSH into your newly created machines. The MOTD contains details on the database, hostnames, etc.
 - By default Xdebug is enable, if you want to disable it, go to line 69, and 99, of Vagrantfile comment it and uncomment line 66, and 96. Don't forget to run `$ vagrant up` after
+- You need to make a few changes in your personal xml configuration files:
+    - <siteaccesssettings matchorder="uri" adminhost="127.0.0.1">
+    - <clusternode syncpath="vagrant@10.0.5.3:/var/www/html/ezp" protocol='ssh' />
 
 ## Environment Details:
 
