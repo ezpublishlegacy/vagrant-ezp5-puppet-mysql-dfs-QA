@@ -20,7 +20,7 @@ include seleniumserver
 include ssh
 include fixpermissions
 
-class  fixpermissions
+class  fixpermissions {
     file { "/var/www/html":
         ensure => "directory",
         owner  => "vagrant",

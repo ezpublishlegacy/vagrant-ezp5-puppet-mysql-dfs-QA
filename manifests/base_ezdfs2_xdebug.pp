@@ -18,6 +18,15 @@ include ezsi
 include ssh
 include fixpermissions
 
+class  fixpermissions {
+    file { "/var/www/html":
+        ensure => "directory",
+        owner  => "vagrant",
+        group  => "vagrant",
+        mode   => '777',  
+    } 
+}
+
 class ssh {
     file { "/home/vagrant/.ssh/authorized_keys":
         ensure => file,
