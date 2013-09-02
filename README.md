@@ -29,7 +29,7 @@ Prototype development machine for eZDFS for eZ Publish 5.x, provisioned with Pup
 
 ```    
     - <siteaccesssettings matchorder="uri" adminhost="127.0.0.1">
-    - <clusternode syncpath="vagrant@10.0.5.3:/var/www/html/ezp" protocol='ssh' />
+    - <clusternode syncpath="vagrant@10.0.5.3:/var/www/html/ezpublish5" protocol='ssh' />
 ```
 - To run a filter use the command:
     - time php tests/runtests.php --dsn mysqli://ezp:ezp@10.0.5.4/ezp --db-per-test --configuration=extension/selenium/configs/<CONFIGURATION>.xml --filter="admin2.html"
