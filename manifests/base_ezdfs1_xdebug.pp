@@ -303,7 +303,7 @@ class virtualhosts {
         group   => 'root',
         mode    => '644',
         require => Package["httpd"],
-    }
+    } ~>
     file    {'/etc/httpd/conf.d/ezp5.conf':
         ensure  => file,
         content => template('/tmp/vagrant-puppet/manifests/virtualhost/ezp5.xdebug.conf.erb'),
@@ -311,6 +311,9 @@ class virtualhosts {
         group   => 'root',
         mode    => '644',
         require => Package["httpd"],
+    } ~>
+    service { "httpd":
+      ensure => running,
     }
 }
 
