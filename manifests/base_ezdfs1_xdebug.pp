@@ -239,7 +239,7 @@ class motd {
 }
 
 class apachephp {
-    $neededpackages = [ "httpd", "php", "php-cli", "php-gd" ,"php-mysql", "php-pear", "php-xml", "php-mbstring", "php-pecl-apc", "php-process", "curl.x86_64", "mysql" ]
+    $neededpackages = [ "httpd", "php", "php-cli", "php-gd" ,"php-mysql", "php-pear", "php-xml", "php-mbstring", "php-pecl-apc", "php-process", "curl.x86_64", "mysql", "php-intl.x86_64" ]
     package { $neededpackages:
         ensure => present,
     } ~>
