@@ -114,7 +114,7 @@ class git {
 }
 
 class nfs_2 {
-    $neededpackages = ["nfs-utils", "nfs-utils-lib", "rpcbind"]
+    $neededpackages = ["nfs-utils", "nfs-utils-lib", "rpcbind", "patch"]
     package { $neededpackages:
         ensure => installed,
     } ~>
